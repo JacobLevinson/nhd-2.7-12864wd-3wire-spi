@@ -2,12 +2,11 @@
 
 ## Overview
 
-This repository contains the source code for the NHD-2.7-12864WD SSD1322 framebuffer driver, along with the device tree overlay (`ssd1322-overlay.dts`). The driver supports the NHD-2.7-12864WD series of OLED displays, which operate in 4-bit grayscale mode and interface with the system via a 3-wire SPI communication protocol.
+This repository contains the source code for the NHD-2.7-12864WD SSD1322 framebuffer driver, along with the device tree overlay (ssd1322-overlay.dts). The driver supports the NHD-2.7-12864WD series of OLED displays, which operate in 4-bit grayscale mode and interface with the system via a 3-wire SPI communication protocol.
 
-The driver provides basic framebuffer functionality, allowing the system to treat the SSD1322-based display as a framebuffer device. This allows you to write data to the display using the framebuffer interface.
+The display has a resolution of 128x64 pixels, with each pixel represented by 4 bits. As a result, two pixels are packed into each byte. The driver provides basic framebuffer functionality, allowing the system to treat the SSD1322-based display as a framebuffer device. This enables users to write data to the display using the standard framebuffer interface.
 
 To assist users in displaying images on the SSD1322-based framebuffer, a Python script is included that converts any input image (e.g., PNG, JPG) into the required 4-bit grayscale format for the display.
-This script simplifies the process of converting standard image formats to the specific format expected by the framebuffer, ensuring the image is displayed correctly on the OLED screen.
 
 ## Features
 
