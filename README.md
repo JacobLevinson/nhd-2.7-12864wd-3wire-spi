@@ -131,13 +131,29 @@ To unload the driver, use the following command:
 sudo rmmod ssd1322fb
 ```
 
+## Wiring the Display
+
+**Ensure that you wire the NHD-2.7-12864WD display according to the datasheet for the 3-wire SPI interface**. You can find the datasheet [here](https://newhavendisplay.com/content/specs/NHD-2.7-12864WDY3.pdf).
+
+The following pins should be connected:
+
+* **SPI_MOSI (DIN)**: Connect to the Master Out Slave In (MOSI) pin on your microcontroller or Raspberry Pi.
+* **SPI_SCLK (CLK)**: Connect to the Serial Clock (SCLK) pin on your microcontroller or Raspberry Pi.
+* **CS (Chip Select)**: Connect to the Chip Select (CS) pin, which should be tied to a GPIO pin on your microcontroller or Raspberry Pi.
+* **RES (Reset)**: **Important**: The reset pin must be held high for normal operation. Ensure that the pin is tied to a high signal (3.3V or 5V).
+* **VCC**: Connect to a 3.3V or 5V power source depending on your setup.
+* **GND**: Connect to the ground pin of your microcontroller or Raspberry Pi.
+
+Refer to the display's datasheet for more detailed wiring instructions specific to the NHD-2.7-12864WD for 3-wire SPI communication.
+
+
 ## Troubleshooting
 
 1. **Driver Not Loading**: Ensure that SPI is enabled and the `dtoverlay` has been applied correctly. Check the logs using `dmesg` to see any error messages related to SPI or the framebuffer.
    
 2. **No Framebuffer Device**: If `/dev/fbX` is not showing up, check the `dmesg` logs for errors during driver initialization.
 
-3. **Display Not Updating**: Make sure your wiring is correct, especially the SPI, DC, and RST lines. Double-check the `ssd1322fb_write` function to ensure the display update is triggered properly.
+3. **Display Not Updating**: Make sure your wiring is correct, especially the SPI, DC, and RST lines.
 
 ## License
 
