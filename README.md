@@ -6,6 +6,9 @@ This repository contains the source code for the NHD-2.7-12864WD SSD1322 framebu
 
 The driver provides basic framebuffer functionality, allowing the system to treat the SSD1322-based display as a framebuffer device. This allows you to write data to the display using the framebuffer interface.
 
+To assist users in displaying images on the SSD1322-based framebuffer, a Python script is included that converts any input image (e.g., PNG, JPG) into the required 4-bit grayscale format for the display.
+This script simplifies the process of converting standard image formats to the specific format expected by the framebuffer, ensuring the image is displayed correctly on the OLED screen.
+
 ## Features
 
 - **128x64 pixel resolution**.
