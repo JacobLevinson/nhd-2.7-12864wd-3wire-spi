@@ -1,4 +1,4 @@
-# SSD1322 Framebuffer Driver
+# nhd-2.7-12864wd-3wire-spi
 
 ## Overview
 
