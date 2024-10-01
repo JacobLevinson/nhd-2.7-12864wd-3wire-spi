@@ -1,0 +1,21 @@
+/dts-v1/;
+/plugin/;
+
+/ {
+    compatible = "brcm,bcm2835";
+
+    fragment@0 {
+        target = <&spi0>;
+        __overlay__ {
+            #address-cells = <1>;
+            #size-cells = <0>;
+
+            ssd1322: ssd1322@0 {
+                compatible = "ssd,ssd1322";
+                reg = <0>;  /* Chip select 0 (CS0) */
+                spi-max-frequency = <2000000>;
+                status = "okay";
+            };
+        };
+    };
+};
